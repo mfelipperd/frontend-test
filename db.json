@@ -1,0 +1,83 @@
+{
+  "empresas": [
+    {
+      "id": 1,
+      "name": "Empresa Alpha",
+      "cnpj": "00.000.000/0001-91",
+      "tradeName": "Alpha Tech",
+      "address": "Rua das Flores, 123 - São Paulo - SP",
+      "createdAt": "2024-01-01T10:00:00Z",
+      "updatedAt": "2024-01-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Empresa Beta",
+      "cnpj": "11.111.111/0001-82",
+      "tradeName": "Beta Corp",
+      "address": "Avenida Central, 456 - Rio de Janeiro - RJ",
+      "createdAt": "2024-02-15T15:30:00Z",
+      "updatedAt": "2024-02-15T15:30:00Z"
+    },
+    {
+      "id": "3e14",
+      "name": "teste",
+      "cnpj": "12345678912345",
+      "tradeName": "Marcos Felippe Rabelo Durans Durans",
+      "address": "Campinas",
+      "favorite": true
+    },
+    {
+      "id": "876c",
+      "name": "teste",
+      "cnpj": "12345678912345",
+      "tradeName": "Marcos Felippe Rabelo Durans Durans",
+      "address": "Campinas",
+      "favorite": false
+    },
+    {
+      "id": "2876",
+      "name": "teste",
+      "cnpj": "12345678912345",
+      "tradeName": "Marcos Felippe Rabelo Durans Durans",
+      "address": "Campinas",
+      "favorite": true
+    },
+    {
+      "id": "89c0",
+      "name": "teste1234",
+      "cnpj": "12345678912345",
+      "tradeName": "Marcos Felippe Rabelo Durans Durans",
+      "address": "Campinas",
+      "favorite": true
+    },
+    {
+      "id": "fe6f",
+      "name": "Luis fernando ",
+      "cnpj": "1234567891234r",
+      "tradeName": "Rico rico",
+      "address": "eu eu eu"
+    },
+    {
+      "id": "9efb",
+      "name": "Luis fernando ",
+      "cnpj": "12.345/6789-12342",
+      "tradeName": "Rico rico",
+      "address": "eu eu eu",
+      "favorite": true
+    },
+    {
+      "id": "a011",
+      "name": "Luis fernando ",
+      "cnpj": "12.345/6789-1234",
+      "tradeName": "Rico rico",
+      "address": "eu eu eu"
+    },
+    {
+      "id": "df13",
+      "name": "teste",
+      "cnpj": "12.345/6789-12344",
+      "tradeName": "Marcos Felippe Rabelo Durans Durans",
+      "address": "Campinas"
+    }
+  ]
+}
