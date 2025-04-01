@@ -35,9 +35,10 @@ const InputControlled = <T extends FieldValues = FieldValues>({
       name={name}
       render={({ field }) => (
         <FormItem className={rest.className}>
-          {label && <FormLabel>{label}</FormLabel>}
+          {label && <FormLabel className="text-lg">{label}</FormLabel>}
           <FormControl>
             <Input
+              className="text-2xl"
               disabled={disabled}
               type={type}
               placeholder={placeholder}

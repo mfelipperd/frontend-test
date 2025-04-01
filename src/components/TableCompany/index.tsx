@@ -10,6 +10,7 @@ import {
 import { TableSkeleton } from "../TableSkeleton";
 import { StarIcon, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { dateFormatter } from "@/utis/dateFormatter";
 interface CompanyListProps {
   data: ICompany[];
   handleSelectCompany: (company: ICompany) => void;
@@ -54,8 +55,8 @@ export const TableCompany = ({
                 <TableCell>{company.cnpj}</TableCell>
                 <TableCell>{company.tradeName}</TableCell>
                 <TableCell>{company.address}</TableCell>
-                <TableCell>{company.createdAt}</TableCell>
-                <TableCell>{company.updatedAt}</TableCell>
+                <TableCell>{dateFormatter(company.createdAt)}</TableCell>
+                <TableCell>{dateFormatter(company.updatedAt)}</TableCell>
                 <TableCell className="flex gap-4">
                   <Trash2
                     onClick={(e) => {
