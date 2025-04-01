@@ -1,8 +1,8 @@
 import { useCompanyService } from "@/services/company/company.service";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ModalDetailCompanyProps } from ".";
-import { ICompany } from "@/interfaces/ICompany";
+import { IUpdateCompany } from "@/interfaces/ICompany";
 
 export const useModalDetailController = ({
   companyData,
@@ -11,16 +11,34 @@ export const useModalDetailController = ({
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const { updateCompany } = useCompanyService();
 
-  const form = useForm({
-    defaultValues: { ...companyData },
+  const form = useForm<IUpdateCompany>({
+    defaultValues: {
+      address: companyData.address,
+      cnpj: companyData.cnpj,
+      favorite: companyData.favorite,
+      name: companyData.name,
+      tradeName: companyData.tradeName,
+    },
   });
-
-  const handleSubmit = async (data: Partial<ICompany>) => {
-    const response = await updateCompany(data as ICompany, companyData.id);
+  const handleSubmit = async (data: IUpdateCompany) => {
+    console.log(data);
+    const response = await updateCompany(data, companyData.id);
     if (response) {
       onClose();
     }
   };
+
+  useEffect(() => {
+    if (companyData) {
+      form.reset({
+        address: companyData.address,
+        cnpj: companyData.cnpj,
+        favorite: companyData.favorite,
+        name: companyData.name,
+        tradeName: companyData.tradeName,
+      });
+    }
+  }, [companyData, form]);
 
   return {
     isEditing,

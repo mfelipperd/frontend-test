@@ -8,3 +8,7 @@ export interface ICompany {
   updatedAt: string;
   favorite: boolean;
 }
+
+export type IUpdateCompany = Partial<
+  Omit<ICompany, "id" | "createdAt" | "updatedAt">
+>;

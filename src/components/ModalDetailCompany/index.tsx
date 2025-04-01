@@ -16,6 +16,7 @@ export const ModalDetailCompany = ({
   onClose,
 }: ModalDetailCompanyProps) => {
   const controller = useModalDetailController({ companyData, isOpen, onClose });
+  console.log(companyData);
   const { form } = controller;
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
