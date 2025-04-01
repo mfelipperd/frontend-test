@@ -60,7 +60,12 @@ export const useCompanyService = () => {
 
   const { mutateAsync: deleteCompany } = useMutation({
     mutationFn: async (id: number) => {
-      await api.delete(`companies/${id}`);
+      try {
+        await api.delete(`companies/${id}`);
+        return true;
+      } catch {
+        return false;
+      }
     },
     onSuccess: () => {
       toast.success("Company deleted successfully");
@@ -78,9 +83,11 @@ export const useCompanyService = () => {
     onSuccess: () => {
       toast.success("Companies deleted successfully");
       queryClient.invalidateQueries({ queryKey: ["companies"] });
+      return true;
     },
     onError: (err) => {
       toast.error(`Error deleting companies: ${err}`);
+      return false;
     },
   });
 

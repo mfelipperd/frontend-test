@@ -18,9 +18,8 @@ export const ModalDeleteCompany = ({
   const { deleteCompany } = useCompanyService();
   const handleDeleteCompany = async () => {
     const response = await deleteCompany(companyData.id);
-    if (response) {
-      onClose();
-    }
+    if (!response) return;
+    onClose();
   };
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>

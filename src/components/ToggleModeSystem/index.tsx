@@ -1,6 +1,5 @@
-import { Moon, Sun } from "lucide-react";
+import { Moon, Settings, Sun } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,13 +13,22 @@ export function ModeToggle() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <div className="flex items-center gap-4 mr-10">
+        <div className="relative -right-14 -top-2.5 cursor-pointer">
+          <Sun
+            onClick={() => setTheme("dark")}
+            className="absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+          />
+          <Moon
+            onClick={() => setTheme("light")}
+            className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+          />
           <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
+        </div>
+        <DropdownMenuTrigger asChild>
+          <Settings />
+        </DropdownMenuTrigger>
+      </div>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
           Light
@@ -30,6 +38,14 @@ export function ModeToggle() {
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
           System
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            localStorage.removeItem("tourSeen");
+            location.reload();
+          }}
+        >
+          Ver tutorial
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

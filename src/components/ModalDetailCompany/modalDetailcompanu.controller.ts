@@ -21,9 +21,9 @@ export const useModalDetailController = ({
     },
   });
   const handleSubmit = async (data: IUpdateCompany) => {
-    console.log(data);
     const response = await updateCompany(data, companyData.id);
     if (response) {
+      setIsEditing(false);
       onClose();
     }
   };
