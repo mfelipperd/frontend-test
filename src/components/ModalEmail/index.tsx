@@ -10,6 +10,7 @@ import { ICreatEmail } from "@/interfaces/IEmail";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createEmailSchema } from "./schema";
 import { Loader2, Plus } from "lucide-react";
+import { EmailManagerTour } from "../EmailTour";
 
 interface ModalEmailsProps {
   open: boolean;
@@ -37,7 +38,8 @@ export const ModalEmails = ({ onClose, open }: ModalEmailsProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="w-fit min-w-fit max-w-fit">
+      <DialogContent className="w-fit min-w-fit max-w-fit email-manager-title">
+        <EmailManagerTour />
         <Form {...form}>
           <form
             action=""
@@ -49,7 +51,7 @@ export const ModalEmails = ({ onClose, open }: ModalEmailsProps) => {
               name="email"
               placeholder="Novo email"
             />
-            <Button>
+            <Button className="email-add-button">
               {loading ? (
                 <Loader2 size={12} className="animate-spin" />
               ) : (

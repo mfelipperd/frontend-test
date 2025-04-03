@@ -5,6 +5,7 @@ import InputControlled from "../InputControlled";
 import { Button } from "../ui/button";
 import { Loader2, PenLine, Save, Undo2 } from "lucide-react";
 import { useModalDetailController } from "./modalDetailcompanu.controller";
+import { ModalCompanyTour } from "../DeatailCompanyTour";
 export interface ModalDetailCompanyProps {
   companyData: ICompany;
   isOpen: boolean;
@@ -19,7 +20,8 @@ export const ModalDetailCompany = ({
   const { form } = controller;
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent>
+      <DialogContent className="modal-company-data">
+        <ModalCompanyTour isEditing={controller.isEditing} />
         <DialogTitle>
           <h1 className="text-2xl font-semibold">Detalhes da empresa</h1>
         </DialogTitle>
@@ -70,7 +72,7 @@ export const ModalDetailCompany = ({
                 >
                   <Undo2 size={20} /> Cancelar
                 </Button>
-                <Button type="submit" className="flex-1">
+                <Button type="submit" className="flex-1 modal-save-button">
                   {controller.loading ? (
                     <Loader2 size={20} className="animate-spin" />
                   ) : (
@@ -82,8 +84,8 @@ export const ModalDetailCompany = ({
             </form>
           </Form>
         ) : (
-          <div className="transition-all duration-300 fade-in-out ">
-            <div className="flex flex-col gap-4 mt-4">
+          <div className="transition-all duration-300 fade-in-out  ">
+            <div className="flex flex-col gap-4 mt-4 ">
               <div className="flex flex-col gap-2">
                 <span className="text-lg font-medium">Nome da empresa</span>
                 <p className="text-lg">{companyData.name}</p>
@@ -104,7 +106,7 @@ export const ModalDetailCompany = ({
 
             <Button
               type="button"
-              className="w-full mt-10"
+              className="w-full mt-10 modal-edit-button"
               onClick={() => controller.setIsEditing(true)}
             >
               <PenLine size={20} />

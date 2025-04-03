@@ -60,7 +60,7 @@ export const TableEmail = ({
                   className="cursor-pointer delete-email-button"
                   size={16}
                 />
-                <div>
+                <div className="email-disable-button">
                   {email?.active ? (
                     <Power
                       size={16}

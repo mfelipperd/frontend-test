@@ -26,7 +26,7 @@ export function ModeToggle() {
           />
           <span className="sr-only">Toggle theme</span>
         </div>
-        <DropdownMenuTrigger asChild>
+        <DropdownMenuTrigger asChild className="config-system-options">
           <Settings />
         </DropdownMenuTrigger>
       </div>
@@ -48,7 +48,10 @@ export function ModeToggle() {
         >
           Ver tutorial
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleControlModalEmails()}>
+        <DropdownMenuItem
+          className="email-manager"
+          onClick={() => handleControlModalEmails()}
+        >
           Configurar Emails
         </DropdownMenuItem>
       </DropdownMenuContent>
