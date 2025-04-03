@@ -9,7 +9,7 @@ export const useModalDetailController = ({
   onClose,
 }: ModalDetailCompanyProps) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const { updateCompany } = useCompanyService();
+  const { updateCompany, loading } = useCompanyService();
 
   const form = useForm<IUpdateCompany>({
     defaultValues: {
@@ -45,5 +45,6 @@ export const useModalDetailController = ({
     handleSubmit,
     form,
     setIsEditing,
+    loading,
   };
 };

@@ -7,9 +7,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "@/components/theme-provider";
+import { ModalEmails } from "../ModalEmail";
+import { useState } from "react";
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
+  const [openEmails, setOpenEmails] = useState<boolean>(false);
+
+  const handleControlModalEmails = () => {
+    setOpenEmails((prev) => !prev);
+  };
 
   return (
     <DropdownMenu>
@@ -47,7 +54,11 @@ export function ModeToggle() {
         >
           Ver tutorial
         </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleControlModalEmails()}>
+          Configurar Emails
+        </DropdownMenuItem>
       </DropdownMenuContent>
+      <ModalEmails onClose={handleControlModalEmails} open={openEmails} />
     </DropdownMenu>
   );
 }

@@ -2,7 +2,7 @@ import InputControlled from "@/components/InputControlled";
 import { PageWrapper } from "@/components/PageWarapper";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import { PlusIcon, Undo2 } from "lucide-react";
+import { Loader2, PlusIcon, Undo2 } from "lucide-react";
 
 import maskCnpj from "@/utis/maskCnpj";
 import { useCompanyFormController } from "./companyForm.controller";
@@ -60,7 +60,12 @@ const CompanyForm = () => {
                   <Undo2 size={20} /> Cancelar
                 </Button>
                 <Button type="submit" className="flex-1">
-                  <PlusIcon size={20} />
+                  {" "}
+                  {controller.loading ? (
+                    <Loader2 className="animate-spin" size={20} />
+                  ) : (
+                    <PlusIcon size={20} />
+                  )}
                   Cadastrar
                 </Button>
               </div>

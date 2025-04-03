@@ -11,7 +11,7 @@ export const useCompanyFormController = () => {
   });
   const navigate = useNavigate();
 
-  const { createCompany } = useCompanyService();
+  const { createCompany, loading } = useCompanyService();
 
   const onSubmit = async (data: CompanyFormData) => {
     const result = await createCompany(data as ICompany);
@@ -24,5 +24,6 @@ export const useCompanyFormController = () => {
     form,
     onSubmit,
     navigate,
+    loading,
   };
 };

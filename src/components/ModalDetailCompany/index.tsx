@@ -3,7 +3,7 @@ import { ICompany } from "@/interfaces/ICompany";
 import { Form } from "../ui/form";
 import InputControlled from "../InputControlled";
 import { Button } from "../ui/button";
-import { PenLine, Undo2 } from "lucide-react";
+import { Loader2, PenLine, Save, Undo2 } from "lucide-react";
 import { useModalDetailController } from "./modalDetailcompanu.controller";
 export interface ModalDetailCompanyProps {
   companyData: ICompany;
@@ -71,7 +71,11 @@ export const ModalDetailCompany = ({
                   <Undo2 size={20} /> Cancelar
                 </Button>
                 <Button type="submit" className="flex-1">
-                  <PenLine size={20} />
+                  {controller.loading ? (
+                    <Loader2 size={20} className="animate-spin" />
+                  ) : (
+                    <Save size={20} />
+                  )}
                   Salvar
                 </Button>
               </div>
