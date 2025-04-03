@@ -11,7 +11,7 @@ export function AppTour() {
 
     if (!tutorialSeen) {
       setTimeout(() => {
-        setRun(true); // só roda depois do delay
+        setRun(true);
       }, 500);
     }
   }, []);

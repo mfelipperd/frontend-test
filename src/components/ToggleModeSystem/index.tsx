@@ -6,18 +6,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useTheme } from "@/components/theme-provider";
 import { ModalEmails } from "../ModalEmail";
-import { useState } from "react";
+import { useToggleModeSystemController } from "./toggleModeSystem.controller";
 
 export function ModeToggle() {
-  const { setTheme } = useTheme();
-  const [openEmails, setOpenEmails] = useState<boolean>(false);
-
-  const handleControlModalEmails = () => {
-    setOpenEmails((prev) => !prev);
-  };
-
+  const { handleControlModalEmails, openEmails, setTheme } =
+    useToggleModeSystemController();
   return (
     <DropdownMenu>
       <div className="flex items-center gap-4 mr-10">
