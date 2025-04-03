@@ -1,10 +1,10 @@
 import { ICompany } from "@/interfaces/ICompany";
 import { Dialog, DialogContent, DialogTitle } from "../ui/dialog";
 import { Button } from "../ui/button";
-import { useCompanyService } from "@/services/company/company.service";
-import { Trash2, Undo2 } from "lucide-react";
+import { Loader2, Trash2, Undo2 } from "lucide-react";
+import { useModalDeleteController } from "./modalDeleteCompany.controller";
 
-interface ModalDeleteCompanyProps {
+export interface ModalDeleteCompanyProps {
   isOpen: boolean;
   onClose: () => void;
   companyData: ICompany;
@@ -15,12 +15,11 @@ export const ModalDeleteCompany = ({
   onClose,
   companyData,
 }: ModalDeleteCompanyProps) => {
-  const { deleteCompany } = useCompanyService();
-  const handleDeleteCompany = async () => {
-    const response = await deleteCompany(companyData.id);
-    if (!response) return;
-    onClose();
-  };
+  const { loading, handleDeleteCompany } = useModalDeleteController({
+    isOpen,
+    onClose,
+    companyData,
+  });
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
@@ -44,7 +43,12 @@ export const ModalDeleteCompany = ({
             variant="destructive"
             onClick={handleDeleteCompany}
           >
-            <Trash2 size={20} />
+            {" "}
+            {loading ? (
+              <Loader2 size={20} className="animate-spin" />
+            ) : (
+              <Trash2 size={20} />
+            )}
             Deletar
           </Button>
         </div>
