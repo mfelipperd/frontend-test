@@ -15,7 +15,7 @@ export function ModeToggle() {
   return (
     <DropdownMenu>
       <div className="flex items-center gap-4 mr-10">
-        <div className="relative -right-14 -top-2.5 cursor-pointer">
+        <div className="relative -right-14 -top-2.5 cursor-pointer theme-control-system">
           <Sun
             onClick={() => setTheme("dark")}
             className="absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"

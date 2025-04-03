@@ -58,6 +58,12 @@ export function AppTour() {
     {
       target: ".email-manager",
       content: "Clique aqui para gerenciar os emails que serão notificados.",
+      disableBeacon: true,
+    },
+    {
+      target: ".theme-control-system",
+      content: "Aqui você também pode alterar o tema da aplicação!",
+      disableBeacon: true,
     },
   ];
 
