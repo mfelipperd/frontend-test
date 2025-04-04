@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { Loader2, PenLine, Save, Undo2 } from "lucide-react";
 import { useModalDetailController } from "./modalDetailcompanu.controller";
 import { ModalCompanyTour } from "../DeatailCompanyTour";
+import maskCnpj from "@/utis/maskCnpj";
 export interface ModalDetailCompanyProps {
   companyData: ICompany;
   isOpen: boolean;
@@ -20,7 +21,7 @@ export const ModalDetailCompany = ({
   const { form } = controller;
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="modal-company-data">
+      <DialogContent>
         <ModalCompanyTour isEditing={controller.isEditing} />
         <DialogTitle>
           <h1 className="text-2xl font-semibold">Detalhes da empresa</h1>
@@ -46,6 +47,7 @@ export const ModalDetailCompany = ({
                 defaultValue={companyData.cnpj}
                 placeholder="CNPJ"
                 className="mb-4"
+                mask={maskCnpj}
               />
               <InputControlled
                 name="tradeName"
@@ -106,7 +108,7 @@ export const ModalDetailCompany = ({
 
             <Button
               type="button"
-              className="w-full mt-10 modal-edit-button"
+              className="w-full mt-10 "
               onClick={() => controller.setIsEditing(true)}
             >
               <PenLine size={20} />

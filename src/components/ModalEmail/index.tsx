@@ -50,8 +50,9 @@ export const ModalEmails = ({ onClose, open }: ModalEmailsProps) => {
               control={form.control}
               name="email"
               placeholder="Novo email"
+              className="flex-1"
             />
-            <Button className="email-add-button">
+            <Button className="email-add-button flex-1">
               {loading ? (
                 <Loader2 size={12} className="animate-spin" />
               ) : (

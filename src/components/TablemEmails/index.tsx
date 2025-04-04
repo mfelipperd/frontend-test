@@ -51,7 +51,7 @@ export const TableEmail = ({
               <TableCell>{email.email}</TableCell>
               <TableCell>{email.active ? "Sim" : "Não"}</TableCell>
               <TableCell>{dateFormatter(email.createdAt)}</TableCell>
-              <TableCell className="flex items-center gap-2">
+              <TableCell className="flex items-center gap-2 pt-[15px]">
                 <Trash2
                   onClick={(e) => {
                     e.stopPropagation();
@@ -60,7 +60,7 @@ export const TableEmail = ({
                   className="cursor-pointer delete-email-button"
                   size={16}
                 />
-                <div className="email-disable-button">
+                <div className="email-disable-button ">
                   {email?.active ? (
                     <Power
                       size={16}
